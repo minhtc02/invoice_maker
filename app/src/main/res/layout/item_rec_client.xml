@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvClient"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/color_F7FBFF"
+    app:cardCornerRadius="10dp"
+    app:strokeColor="@color/color_E4EBF4"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/client_name"
+                android:textColor="@color/color_383F5C" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/client_name"
+                android:textColor="@color/color_383F5C" />
+
+            <TextView
+                android:id="@+id/tvDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/client_name"
+                android:textColor="@color/color_383F5C" />
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/color_F7FBFF"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_delete" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/color_F7FBFF"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+
+            app:layout_constraintTop_toTopOf="@+id/btnDelete">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_edit" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

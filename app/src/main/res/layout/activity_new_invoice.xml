@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NewInvoiceActivity">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/new_invoice"
+        android:textColor="@color/color_383F5C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <ImageView
+        android:id="@+id/btnPremium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_premium"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/lin1"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/btnBack">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvInVoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/inv001"
+                        android:textColor="@color/color_383F5C"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtCreateOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/create_on"
+                        android:textColor="@color/color_383F5C"
+                        app:layout_constraintStart_toStartOf="@+id/tvNumber"
+                        app:layout_constraintTop_toBottomOf="@+id/tvNumber" />
+
+                    <TextView
+                        android:id="@+id/tvCreatOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/_25_08_2021"
+                        android:textColor="@color/color_383F5C"
+                        app:layout_constraintStart_toEndOf="@+id/txtCreateOn"
+                        app:layout_constraintTop_toTopOf="@+id/txtCreateOn" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_next"
+                        app:layout_constraintBottom_toBottomOf="@id/txtCreateOn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtCreateOn" />
+
+                    <TextView
+                        android:id="@+id/txtDueOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/due_on"
+                        android:textColor="@color/color_383F5C"
+                        app:layout_constraintStart_toStartOf="@+id/tvNumber"
+                        app:layout_constraintTop_toBottomOf="@+id/txtCreateOn" />
+
+                    <TextView
+                        android:id="@+id/tvDueOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/color_383F5C"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvCreatOn"
+                        app:layout_constraintTop_toTopOf="@+id/txtDueOn" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="-10dp"
+                android:background="@color/color_E4EBF4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvInVoice" />
+
+            <!--            <com.google.android.material.card.MaterialCardView-->
+            <!--                android:id="@+id/cvTemplates"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="14dp"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                app:cardBackgroundColor="@color/color_F7FBFF"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:strokeColor="@color/color_E4EBF4"-->
+            <!--                app:strokeWidth="1dp">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:padding="16dp">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imgTemplates"-->
+            <!--                        android:layout_width="25dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:src="@drawable/ic_templates" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="13dp"-->
+            <!--                        android:layout_toEndOf="@+id/imgTemplates"-->
+            <!--                        android:fontFamily="@font/poppins_regular"-->
+            <!--                        android:text="@string/templates"-->
+            <!--                        android:textColor="@color/color_383F5C" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentEnd="true"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:src="@drawable/ic_next" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--            </com.google.android.material.card.MaterialCardView>-->
+
+            <!--            <com.google.android.material.card.MaterialCardView-->
+            <!--                android:id="@+id/cvAddSignature"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="14dp"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                app:cardBackgroundColor="@color/color_F7FBFF"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:strokeColor="@color/color_E4EBF4"-->
+            <!--                app:strokeWidth="1dp">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:padding="16dp">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imgAddSignature"-->
+            <!--                        android:layout_width="25dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:src="@drawable/ic_signature" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="13dp"-->
+            <!--                        android:layout_toEndOf="@+id/imgAddSignature"-->
+            <!--                        android:fontFamily="@font/poppins_regular"-->
+            <!--                        android:text="@string/add_signature"-->
+            <!--                        android:textColor="@color/color_383F5C" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentEnd="true"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:src="@drawable/ic_next" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--            </com.google.android.material.card.MaterialCardView>-->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgFrom"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_from" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgFrom"
+                        android:gravity="top"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/from"
+                            android:textColor="@color/color_383F5C" />
+
+                        <TextView
+                            android:id="@+id/tvBusinessName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/add_business"
+                            android:textColor="@color/color_91B2DB"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvBillTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgBillTo"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_bill_to" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgBillTo"
+                        android:gravity="top"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/bill_to"
+                            android:textColor="@color/color_383F5C" />
+
+                        <TextView
+                            android:id="@+id/tvClientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/add_business"
+                            android:textColor="@color/color_91B2DB"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgItems"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_item" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgItems"
+                        android:gravity="top"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/items"
+                            android:textColor="@color/color_383F5C" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/add_business"
+                            android:textColor="@color/color_91B2DB"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgDiscount"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_discount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgDiscount"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/discount"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgTax"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_tax" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgTax"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/tax"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvShipping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgShipping"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_shipping" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgShipping"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/shipping"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <!--            <com.google.android.material.card.MaterialCardView-->
+            <!--                android:id="@+id/cvCurrency"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="14dp"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                app:cardBackgroundColor="@color/color_F7FBFF"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:strokeColor="@color/color_E4EBF4"-->
+            <!--                app:strokeWidth="1dp">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:padding="16dp">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imgCurrency"-->
+            <!--                        android:layout_width="25dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:src="@drawable/ic_currency" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="13dp"-->
+            <!--                        android:layout_toEndOf="@+id/imgCurrency"-->
+            <!--                        android:fontFamily="@font/poppins_regular"-->
+            <!--                        android:text="@string/currency"-->
+            <!--                        android:textColor="@color/color_383F5C" />-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginEnd="15dp"-->
+            <!--                        android:layout_toStartOf="@+id/imgBack"-->
+            <!--                        android:fontFamily="@font/poppins_regular"-->
+            <!--                        android:text="@string/vnd_0"-->
+            <!--                        android:textColor="@color/color_383F5C" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imgBack"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentEnd="true"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:src="@drawable/ic_next" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--            </com.google.android.material.card.MaterialCardView>-->
+            <!--            <com.google.android.material.card.MaterialCardView-->
+            <!--                android:id="@+id/cvCustomMode"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="14dp"-->
+            <!--                android:clickable="true"-->
+            <!--                android:focusable="true"-->
+            <!--                app:cardBackgroundColor="@color/color_F7FBFF"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:strokeColor="@color/color_E4EBF4"-->
+            <!--                app:strokeWidth="1dp">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:padding="16dp">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/imgCustomMode"-->
+            <!--                        android:layout_width="25dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:src="@drawable/ic_custom_mode" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="13dp"-->
+            <!--                        android:layout_toEndOf="@+id/imgCustomMode"-->
+            <!--                        android:fontFamily="@font/poppins_regular"-->
+            <!--                        android:text="@string/custom_mode"-->
+            <!--                        android:textColor="@color/color_383F5C" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentEnd="true"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:src="@drawable/ic_next" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--            </com.google.android.material.card.MaterialCardView>-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTerm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgTerm"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_term_conditions" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgTerm"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/terms_amp_conditions"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgPaymentMethod"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_payment_method" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgPaymentMethod"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Payment Method"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvAttachments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_E4EBF4"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgAttachments"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_attachments" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_toEndOf="@+id/imgAttachments"
+                        android:gravity="top"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Attachments"
+                            android:textColor="@color/color_383F5C" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/add_attachments"
+                            android:textColor="@color/color_91B2DB"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_next" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="24dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:strokeColor="@color/color_2DBDD8"
+                app:strokeWidth="1dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingStart="18dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/preview"
+                    android:textColor="@color/color_2DBDD8" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_2DBDD8"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingStart="28dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="28dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_2DBDD8"
+            android:gravity="center_vertical"
+            android:paddingStart="32dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/total"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/_120"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

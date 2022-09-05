@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.BusinessInfoActivity">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="42dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/business_infor"
+        android:textColor="@color/color_383F5C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingStart="16dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="4dp"
+            android:text="@string/done"
+            android:textColor="@color/color_383F5C" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
+
+        <ImageView
+            android:id="@+id/btnAddImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_business_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/logo"
+            android:textColor="@color/color_383F5C" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/business_name"
+            android:textColor="@color/color_91B2DB" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="50dp"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/color_91B2DB"
+            app:strokeWidth="1.5dp">
+
+            <EditText
+                android:id="@+id/edBusinessName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="18dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="10dp"
+                android:text="@string/business"
+                android:textColor="@color/color_383F5C" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/email_address"
+            android:textColor="@color/color_91B2DB" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="50dp"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/color_91B2DB"
+            app:strokeWidth="1.5dp">
+
+            <EditText
+                android:id="@+id/edEmailBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="18dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="10dp"
+                android:text="@string/abc_gmail_com"
+                android:textColor="@color/color_383F5C" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/phone_number"
+            android:textColor="@color/color_91B2DB" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="50dp"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/color_91B2DB"
+            app:strokeWidth="1.5dp">
+
+            <EditText
+                android:id="@+id/edPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="number"
+                android:paddingStart="18dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="10dp"
+                android:text="@string/_0123456789"
+                android:textColor="@color/color_383F5C" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/billing_address"
+            android:textColor="@color/color_91B2DB" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="50dp"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/color_91B2DB"
+            app:strokeWidth="1.5dp">
+
+            <EditText
+                android:id="@+id/edBillingAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="number"
+                android:paddingStart="18dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="10dp"
+                android:text="@string/_123_456"
+                android:textColor="@color/color_383F5C" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/business_website"
+            android:textColor="@color/color_91B2DB" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="50dp"
+            app:cardCornerRadius="8dp"
+            app:strokeColor="@color/color_91B2DB"
+            app:strokeWidth="1.5dp">
+
+            <EditText
+                android:id="@+id/edBusinessWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="18dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="10dp"
+                android:text="@string/www_abc_com"
+                android:textColor="@color/color_383F5C" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

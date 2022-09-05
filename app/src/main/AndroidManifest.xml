@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.invoice_maker_app">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Invoice_maker_app"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.AttachmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TaxActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ItemsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TermsAndConditionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PaymentMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.BusinessInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.InvoiceInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewInvoiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.AllInvoiceActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

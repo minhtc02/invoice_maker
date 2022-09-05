@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/color_F7FBFF"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@color/color_E4EBF4"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/filter_by"
+                android:textColor="@color/color_383F5C"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/creation_date"
+                android:textColor="@color/color_91B2DB" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/date_from"
+                android:textColor="@color/color_383F5C" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnDateFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_91B2DB"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/tvDateFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="@string/set_date"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_calendar" />
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/date_to"
+                android:textColor="@color/color_383F5C" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnDateTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/color_F7FBFF"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/color_91B2DB"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/tvDateTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="@string/set_date"
+                        android:textColor="@color/color_383F5C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_calendar" />
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/color_F7FBFF"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="@color/color_2DBDD8"
+                    app:strokeWidth="1dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="3dp"
+                        android:text="@string/cancel"
+                        android:textColor="@color/color_2DBDD8"
+                        android:textSize="12sp" />
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnApply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="24dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/color_2DBDD8"
+                    app:cardCornerRadius="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:paddingStart="22dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="22dp"
+                        android:paddingBottom="3dp"
+                        android:text="@string/apply"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>
