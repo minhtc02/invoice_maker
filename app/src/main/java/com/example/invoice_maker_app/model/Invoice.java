@@ -1,9 +1,13 @@
 package com.example.invoice_maker_app.model;
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(tableName = "Invoice")
 public class Invoice implements Serializable {
@@ -19,9 +23,13 @@ public class Invoice implements Serializable {
     private String shipping;
     private String discountId;
     private String totalMoney;
+    private String totalTax;
     private String status;
+    @TypeConverters(ConverterTax.class)
+    private List<Tax> listTax = null;
 
-    public Invoice(String number, String createDate, String dueTerms, String dueDate, String po, String businessId, String clientId, String shipping, String discountId, String totalMoney, String status) {
+
+    public Invoice(String number, String createDate, String dueTerms, String dueDate, String po, String businessId, String clientId, String shipping, String discountId, String totalMoney, String totalTax, String status, ArrayList<Tax> listTax) {
         this.number = number;
         this.createDate = createDate;
         this.dueTerms = dueTerms;
@@ -32,8 +40,11 @@ public class Invoice implements Serializable {
         this.shipping = shipping;
         this.discountId = discountId;
         this.totalMoney = totalMoney;
+        this.totalTax = totalTax;
         this.status = status;
+        this.listTax = listTax;
     }
+
 
     public Invoice() {
     }
@@ -132,5 +143,21 @@ public class Invoice implements Serializable {
 
     public void setDiscountId(String discountId) {
         this.discountId = discountId;
+    }
+
+    public String getTotalTax() {
+        return totalTax;
+    }
+
+    public void setTotalTax(String totalTax) {
+        this.totalTax = totalTax;
+    }
+
+    public List<Tax> getListTax() {
+        return listTax;
+    }
+
+    public void setListTax(List<Tax> listTax) {
+        this.listTax = listTax;
     }
 }

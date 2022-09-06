@@ -6,9 +6,11 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -24,8 +26,10 @@ import com.example.invoice_maker_app.model.Business;
 import com.example.invoice_maker_app.model.Client;
 import com.example.invoice_maker_app.model.Discount;
 import com.example.invoice_maker_app.model.Invoice;
+import com.example.invoice_maker_app.model.Tax;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
@@ -34,6 +38,7 @@ public class NewInvoiceActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_DATE = 1;
     private static final int REQUEST_CODE_FROM = 2;
     private static final int REQUEST_CODE_TO = 3;
+    private static final int REQUEST_CODE_TAX = 4;
     ActivityNewInvoiceBinding binding;
     DialogDiscountBinding dialogDiscountBinding;
     DialogShippingBinding dialogShippingBinding;
@@ -46,6 +51,7 @@ public class NewInvoiceActivity extends AppCompatActivity {
     Business business;
     Client client;
     Discount discount;
+    ArrayList<Tax> taxList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,14 +62,16 @@ public class NewInvoiceActivity extends AppCompatActivity {
         setClick();
     }
 
+
     private void initalizeView() {
+        taxList = new ArrayList<>();
         builder = new AlertDialog.Builder(this);
         invoice = (Invoice) getIntent().getSerializableExtra("invoice");
         if (invoice == null) {
             Random random = new Random();
             String number = "IVN" + sdf.format(Calendar.getInstance().getTime()) + "_" + sdf1.format(Calendar.getInstance().getTime()) + "_" + random.nextInt(999);
             String creationDate = sdf2.format(Calendar.getInstance().getTime());
-            invoice = new Invoice(number, creationDate, "", "", "", "", "", "", "", "", "");
+            invoice = new Invoice(number, creationDate, "", "", "", "", "", "", "", "", "", "", taxList);
         }
         updateView();
 
@@ -83,6 +91,7 @@ public class NewInvoiceActivity extends AppCompatActivity {
             client = list.get(0);
             binding.tvClientName.setText(client.getName());
         }
+
     }
 
     String id;
@@ -105,49 +114,13 @@ public class NewInvoiceActivity extends AppCompatActivity {
         });
         binding.cvItems.setOnClickListener(v -> startActivity(new Intent(this, ItemsActivity.class)));
         binding.cvDiscount.setOnClickListener(v -> {
-            dialogDiscountBinding = DialogDiscountBinding.inflate(LayoutInflater.from(this));
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_spinner_item, ListInvoice.listspDiscount);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            dialogDiscountBinding.spDiscount.setAdapter(adapter);
-            if (!invoice.getDiscountId().equals("")) {
-                List<Discount> list = InvoiceDatabase.getInstance(this).discountDAO().checkExist(invoice.getDiscountId());
-                discount = list.get(0);
-                dialogDiscountBinding.edDiscount.setText(discount.getName());
-                if (discount.getType().equals("%")) {
-                    dialogDiscountBinding.spDiscount.setSelection(0);
-                } else {
-                    dialogDiscountBinding.spDiscount.setSelection(1);
-                }
-            } else {
-                Random random = new Random();
-                id = System.currentTimeMillis() + "_" + random.nextInt(999);
-                discount = new Discount(id, "0", "%");
-            }
-            dialogDiscountBinding.btnOK.setOnClickListener(v1 -> {
-                discount.setName(dialogDiscountBinding.edDiscount.getText().toString().trim());
-                discount.setType(dialogDiscountBinding.spDiscount.getSelectedItem().toString().trim());
-
-                if (checkExistDiscount(discount)) {
-                    InvoiceDatabase.getInstance(this).discountDAO().update(discount);
-                } else {
-                    InvoiceDatabase.getInstance(this).discountDAO().insert(discount);
-                }
-
-                invoice.setDiscountId(id);
-                updateView();
-                dialog.cancel();
-            });
-            dialogDiscountBinding.btnCancel.setOnClickListener(v1 -> {
-                dialog.cancel();
-            });
-            builder.setView(dialogDiscountBinding.getRoot());
-            dialog = builder.create();
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-            dialog.getWindow().setGravity(Gravity.CENTER);
-            dialog.show();
+            discountClick();
         });
-        binding.cvTax.setOnClickListener(v -> startActivity(new Intent(this, TaxActivity.class)));
+        binding.cvTax.setOnClickListener(v -> {
+            Intent intent = new Intent(this, TaxActivity.class);
+            intent.putExtra("tax", invoice);
+            startActivityForResult(intent, REQUEST_CODE_TAX);
+        });
         binding.cvShipping.setOnClickListener(v -> {
             dialogShippingBinding = DialogShippingBinding.inflate(LayoutInflater.from(this));
             dialogShippingBinding.edShipping.setText(invoice.getShipping());
@@ -191,9 +164,14 @@ public class NewInvoiceActivity extends AppCompatActivity {
             invoice.setBusinessId(business.getId());
             updateView();
         } else if (requestCode == REQUEST_CODE_TO && resultCode == Activity.RESULT_OK) {
-            business = (Business) data.getSerializableExtra("client");
+            client = (Client) data.getSerializableExtra("client");
             invoice.setClientId(String.valueOf(client.getId()));
             updateView();
+        } else if (requestCode == REQUEST_CODE_TAX && resultCode == Activity.RESULT_OK) {
+            Log.d("AAA", "ls: " + ListInvoice.listTaxSelected.size());
+            invoice.setListTax(ListInvoice.listTaxSelected);
+            ListInvoice.listTaxSelected.clear();
+            Log.d("AAA", "lsi: " + invoice.getListTax().size());
         }
     }
 
@@ -203,16 +181,77 @@ public class NewInvoiceActivity extends AppCompatActivity {
     }
 
     private boolean checkExistDiscount(Discount discount) {
-        List<Discount> invoiceList = InvoiceDatabase.getInstance(this).discountDAO().checkExist(discount.getId());
-        return invoiceList != null && !invoiceList.isEmpty();
+        List<Discount> list = InvoiceDatabase.getInstance(this).discountDAO().checkExist(discount.getId());
+        return list != null && !list.isEmpty();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        Log.d("AAA", "lsi resume: " + invoice.getListTax().size());
+
+    }
+
+    private void discountClick() {
+        dialogDiscountBinding = DialogDiscountBinding.inflate(LayoutInflater.from(this));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, ListInvoice.listspDiscount);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dialogDiscountBinding.spDiscount.setAdapter(adapter);
+
+        if (invoice.getDiscountId().equals("")) {
+            Random random = new Random();
+            invoice.setDiscountId(String.valueOf(random.nextInt(999)));
+            discount = new Discount(invoice.getDiscountId(), "0", "%");
+        } else {
+            List<Discount> list = InvoiceDatabase.getInstance(this).discountDAO().checkExist(invoice.getDiscountId());
+            discount = list.get(0);
+            dialogDiscountBinding.edDiscount.setText(discount.getName());
+            if (discount.getType().equals("%")) {
+                dialogDiscountBinding.spDiscount.setSelection(0);
+            } else {
+                dialogDiscountBinding.spDiscount.setSelection(1);
+            }
+        }
+
+
+        dialogDiscountBinding.btnOK.setOnClickListener(v1 -> {
+            discount.setName(dialogDiscountBinding.edDiscount.getText().toString().trim());
+            discount.setType(dialogDiscountBinding.tvType.getText().toString().trim());
+
+            if (checkExistDiscount(discount)) {
+                InvoiceDatabase.getInstance(this).discountDAO().update(discount);
+            } else {
+                InvoiceDatabase.getInstance(this).discountDAO().insert(discount);
+            }
+            dialog.cancel();
+        });
+
+        dialogDiscountBinding.btnCancel.setOnClickListener(v1 -> {
+            dialog.cancel();
+        });
+
+        dialogDiscountBinding.spDiscount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    dialogDiscountBinding.tvType.setText("%");
+                } else {
+                    dialogDiscountBinding.tvType.setText("$");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        builder.setView(dialogDiscountBinding.getRoot());
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.getWindow().setGravity(Gravity.CENTER);
+        dialog.show();
     }
 }

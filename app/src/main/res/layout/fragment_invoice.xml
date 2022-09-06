@@ -149,7 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recFilter"
             tools:itemCount="3"
-            tools:listitem="@layout/item_rec_invoice" />
+            tools:listitem="@layout/item_invoice" />
 
         <ImageView
             android:id="@+id/btnAdd"

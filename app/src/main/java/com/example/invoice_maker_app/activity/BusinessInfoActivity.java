@@ -57,11 +57,4 @@ public class BusinessInfoActivity extends AppCompatActivity {
         return list != null && !list.isEmpty();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-    }
 }

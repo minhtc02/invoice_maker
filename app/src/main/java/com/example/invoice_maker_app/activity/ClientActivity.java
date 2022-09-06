@@ -46,9 +46,6 @@ public class ClientActivity extends AppCompatActivity implements ClientClick {
     @Override
     protected void onResume() {
         super.onResume();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
         updateView();
     }
 

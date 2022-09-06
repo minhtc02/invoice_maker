@@ -32,12 +32,14 @@
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_filter.xml" value="0.2" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_paid_expand.xml" value="0.25833333333333336" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_payment_method.xml" value="0.25833333333333336" />
-        <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_shipping.xml" value="0.4600231749710313" />
+        <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_shipping.xml" value="0.2600806451612903" />
+        <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_tax.xml" value="0.4" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/dialog_term.xml" value="0.259375" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/fragment_client.xml" value="0.21388888888888888" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/fragment_estimate.xml" value="0.259375" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/fragment_invoice.xml" value="0.264" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/fragment_items.xml" value="0.259375" />
+        <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/item_payment_method.xml" value="0.259375" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/item_rec_client.xml" value="0.536" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/item_rec_estimate.xml" value="0.264" />
         <entry key="..\:/androidlab/invoice_maker_app/app/src/main/res/layout/item_rec_filter.xml" value="0.536" />

@@ -6,6 +6,7 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.example.invoice_maker_app.dao.BusinessDAO;
 import com.example.invoice_maker_app.dao.ClientDAO;
@@ -18,6 +19,7 @@ import com.example.invoice_maker_app.dao.TaxDAO;
 import com.example.invoice_maker_app.dao.TermDAO;
 import com.example.invoice_maker_app.model.Business;
 import com.example.invoice_maker_app.model.Client;
+import com.example.invoice_maker_app.model.ConverterTax;
 import com.example.invoice_maker_app.model.Discount;
 import com.example.invoice_maker_app.model.Invoice;
 import com.example.invoice_maker_app.model.Item;
@@ -27,6 +29,7 @@ import com.example.invoice_maker_app.model.Tax;
 import com.example.invoice_maker_app.model.Term;
 
 @Database(entities = {Invoice.class, Business.class, Client.class, Discount.class, Item.class, Items.class, PaymentMethod.class, Tax.class, Term.class}, version = 1)
+@TypeConverters({ConverterTax.class})
 public abstract class InvoiceDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "invoice.db";
     private static InvoiceDatabase instance;

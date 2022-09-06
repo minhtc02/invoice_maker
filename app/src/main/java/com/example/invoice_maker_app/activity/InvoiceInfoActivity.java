@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,9 +37,9 @@ public class InvoiceInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityInvoiceInfoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        initalizeView();
-        setClick();
 
+        setClick();
+        initalizeView();
     }
 
     private void setClick() {
@@ -48,7 +50,7 @@ public class InvoiceInfoActivity extends AppCompatActivity {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     calendar.set(year, month, dayOfMonth);
-                    binding.tvDueDate.setText(dateFormat.format(calendar.getTime()));
+                    binding.tvCreationDate.setText(dateFormat.format(calendar.getTime()));
                     setDiff();
                 }
             }, calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DATE));
@@ -183,6 +185,12 @@ public class InvoiceInfoActivity extends AppCompatActivity {
         if (invoice != null) {
             binding.edInvoiceNumber.setText(invoice.getNumber());
             binding.tvCreationDate.setText(invoice.getCreateDate());
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(() -> {
+                binding.tvDueTerm.setText(invoice.getDueTerms());
+                binding.tvDueDate.setText(invoice.getDueDate());
+
+            }, 300);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, ListInvoice.listsp);
@@ -193,8 +201,5 @@ public class InvoiceInfoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
     }
 }

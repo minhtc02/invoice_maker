@@ -7,7 +7,7 @@
     tools:context=".activity.ItemsActivity">
 
 
-<ImageView
+    <ImageView
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvNewClient"
+            android:id="@+id/cvNewItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -84,17 +84,18 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/item_list"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/color_383F5C"
-            />
+            android:text="@string/item_list"
+            android:textColor="@color/color_383F5C" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rexItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -103,7 +104,7 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="5"
-            tools:listitem="@layout/item_rec_client" />
+            tools:listitem="@layout/item_client" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

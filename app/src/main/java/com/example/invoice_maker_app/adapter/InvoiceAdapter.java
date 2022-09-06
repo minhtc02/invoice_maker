@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.invoice_maker_app.databinding.ItemRecInvoiceBinding;
+import com.example.invoice_maker_app.databinding.ItemInvoiceBinding;
 import com.example.invoice_maker_app.interfaces.InvoiceClick;
 import com.example.invoice_maker_app.model.Invoice;
 
@@ -28,7 +28,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemRecInvoiceBinding binding = ItemRecInvoiceBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemInvoiceBinding binding = ItemInvoiceBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
@@ -49,9 +49,9 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ItemRecInvoiceBinding binding;
+        ItemInvoiceBinding binding;
 
-        public ViewHolder(ItemRecInvoiceBinding binding) {
+        public ViewHolder(ItemInvoiceBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

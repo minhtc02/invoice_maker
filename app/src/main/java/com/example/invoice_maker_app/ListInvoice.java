@@ -1,6 +1,7 @@
 package com.example.invoice_maker_app;
 
 import com.example.invoice_maker_app.model.RecFilter;
+import com.example.invoice_maker_app.model.Tax;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class ListInvoice {
     public static List<RecFilter> recFilterEstimateList = new ArrayList<>();
     public static List<String> listsp = new ArrayList<>();
     public static List<String> listspDiscount = new ArrayList<>();
+    public static ArrayList<Tax> listTaxSelected = new ArrayList<>();
 
     public static void createList() {
         recFilterInvoiceList.add(new RecFilter("All", true));
@@ -36,8 +38,8 @@ public class ListInvoice {
         listsp.add("180 days");
         listsp.add("Custom");
 
-        listspDiscount.add("%");
-        listspDiscount.add("$");
+        listspDiscount.add("Percentage");
+        listspDiscount.add("Flat Amount");
     }
 
 }

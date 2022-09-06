@@ -92,4 +92,6 @@
     <string name="do_you_want_to_delete">Do you want to delete ?</string>
     <string name="delete">Delete</string>
     <string name="_0">0</string>
+    <string name="tax_name">Tax Name</string>
+    <string name="tax_rate">Tax Rate</string>
 </resources>
