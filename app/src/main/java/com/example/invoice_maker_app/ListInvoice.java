@@ -11,7 +11,6 @@ public class ListInvoice {
     public static List<RecFilter> recFilterEstimateList = new ArrayList<>();
     public static List<String> listsp = new ArrayList<>();
     public static List<String> listspDiscount = new ArrayList<>();
-    public static ArrayList<Tax> listTaxSelected = new ArrayList<>();
 
     public static void createList() {
         recFilterInvoiceList.add(new RecFilter("All", true));

@@ -13,17 +13,10 @@ public class Tax implements Serializable {
     private String rate;
     private boolean isSelected;
 
-    public Tax(int id, String name, String rate, boolean isSelected) {
-        this.id = id;
+    public Tax(String name, String rate, boolean isSelected) {
         this.name = name;
         this.rate = rate;
         this.isSelected = isSelected;
-    }
-
-    public Tax(int id, String name, String rate) {
-        this.id = id;
-        this.name = name;
-        this.rate = rate;
     }
 
     public Tax() {

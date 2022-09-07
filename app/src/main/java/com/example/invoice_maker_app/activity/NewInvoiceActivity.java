@@ -168,10 +168,7 @@ public class NewInvoiceActivity extends AppCompatActivity {
             invoice.setClientId(String.valueOf(client.getId()));
             updateView();
         } else if (requestCode == REQUEST_CODE_TAX && resultCode == Activity.RESULT_OK) {
-            Log.d("AAA", "ls: " + ListInvoice.listTaxSelected.size());
-            invoice.setListTax(ListInvoice.listTaxSelected);
-            ListInvoice.listTaxSelected.clear();
-            Log.d("AAA", "lsi: " + invoice.getListTax().size());
+            invoice = (Invoice) data.getSerializableExtra("invoice_tax");
         }
     }
 
@@ -189,8 +186,6 @@ public class NewInvoiceActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("AAA", "lsi resume: " + invoice.getListTax().size());
-
     }
 
     private void discountClick() {

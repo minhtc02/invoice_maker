@@ -6,9 +6,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +20,6 @@ import com.example.invoice_maker_app.interfaces.TaxClick;
 import com.example.invoice_maker_app.model.Invoice;
 import com.example.invoice_maker_app.model.Tax;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TaxActivity extends AppCompatActivity implements TaxClick {
@@ -33,7 +32,6 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
     AlertDialog.Builder builder;
     Tax tax;
     Invoice invoice;
-    ArrayList<Tax> taxArrayList = new ArrayList<>();
 
 
     @Override
@@ -50,7 +48,14 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
         invoice = (Invoice) getIntent().getSerializableExtra("tax");
         builder = new AlertDialog.Builder(this);
         list = InvoiceDatabase.getInstance(this).taxDAO().getAll();
-        taxAdapter = new TaxAdapter(list, invoice, this, this);
+        for (Tax tax : list) {
+            for (Tax invoiceTax : invoice.getListTax()) {
+                if (tax.getName().equals(invoiceTax.getName())) {
+                    tax.setSelected(true);
+                }
+            }
+        }
+        taxAdapter = new TaxAdapter(list, this, this);
         binding.recTax.setAdapter(taxAdapter);
 
     }
@@ -59,7 +64,7 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
         binding.btnBack.setOnClickListener(v -> onBackPressed());
         binding.cvNewTax.setOnClickListener(v -> {
             dialogTaxBinding = DialogTaxBinding.inflate(LayoutInflater.from(this));
-            tax = new Tax("", "");
+            tax = new Tax("", "", false);
             dialogTaxBinding.edTaxName.setText(tax.getName());
             dialogTaxBinding.edTaxRate.setText(tax.getRate());
 
@@ -86,17 +91,18 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
             dialog.show();
         });
         binding.btnDone.setOnClickListener(v -> {
+            invoice.getListTax().clear();
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).isSelected()) {
+                    invoice.getListTax().add(list.get(i));
+                }
+            }
+
             Intent intent = new Intent();
+            intent.putExtra("invoice_tax", invoice);
             setResult(Activity.RESULT_OK, intent);
             finish();
         });
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        updateView();
     }
 
     private boolean checkExist(Tax tax) {
@@ -106,12 +112,26 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
 
     private void updateView() {
         list = InvoiceDatabase.getInstance(this).taxDAO().getAll();
+        for (Tax tax : list) {
+            for (Tax invoiceTax : invoice.getListTax()) {
+                if (tax.getName().equals(invoiceTax.getName())) {
+                    tax.setSelected(true);
+                }
+            }
+        }
         taxAdapter.setData(list);
     }
 
     @Override
-    public void clickTax(Tax tax) {
+    public void clickTax(Tax tax, int position) {
+        if (!tax.isSelected()) {
+            list.get(position).setSelected(true);
 
+        } else {
+            list.get(position).setSelected(false);
+        }
+        Log.d("AAA", "" + tax.isSelected());
+        taxAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -129,6 +149,7 @@ public class TaxActivity extends AppCompatActivity implements TaxClick {
                 InvoiceDatabase.getInstance(this).taxDAO().insert(tax);
             }
             updateView();
+
             dialog.cancel();
         });
 
